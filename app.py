@@ -35,8 +35,10 @@ def compare():
 
         diff = difflib.unified_diff(file1_lines, file2_lines, fromfile='file1', tofile='file2')
 
-        diff = list(diff)
-        return render_template("compare.html", diff=dict(diff))
+if isinstance(diff, dict) and len(diff) == 2:
+    return render_template("compare.html", diff=diff)
+else:
+    return "Error: Invalid comparison data"
 
 
 if __name__ == "__main__":
