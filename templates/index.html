@@ -1,0 +1,16 @@
+# templates/index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Compare</title>
+</head>
+<body>
+  <h1>File Compare</h1>
+  <form action="/compare" method="post" enctype="multipart/form-data">
+    <input type="file" name="file1">
+    <input type="file" name="file2">
+    <input type="submit" value="Compare">
+  </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# templates/compare.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Compare Result</title>
+</head>
+<body>
+  <h1>File Compare Result</h1>
+  <pre>
+  {% for line in diff %}
+  {{ line }}
+  {% endfor %}
+  </pre>
+</body>
+</html>
