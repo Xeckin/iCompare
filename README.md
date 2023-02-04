@@ -1,2 +1,2 @@
 # iCompare
-Care your MT5 .ini files
+Compare your MT5 .ini files
