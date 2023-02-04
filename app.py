@@ -35,7 +35,9 @@ def compare():
 
         diff = difflib.unified_diff(file1_lines, file2_lines, fromfile='file1', tofile='file2')
 
+        diff = list(diff)
         return render_template("compare.html", diff=dict(diff))
+
 
 if __name__ == "__main__":
     app.run(debug=True)
