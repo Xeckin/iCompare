@@ -20,7 +20,7 @@
       {% for line in diff %}
         <tr>
           <td class="{{ 'different' if line[0] in ['-' ,'+'] else '' }}">{{ line[0] }}</td>
-          <td class="{% if line[0] == '-' %}different{% endif %}">{% if line[0] == '-' %}{{ line[1:] }}{% endif %}</td>
+          <td class="{{ 'different' if line[0] == '-' else '' }}">{{ line[1][0] if line[0] != '?' else '' }}</td>
           <td class="{{ 'different' if line[0] == '+' else '' }}">{{ line[1][1] if line[0] != '?' else '' }}</td>
         </tr>
       {% endfor %}
