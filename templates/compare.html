@@ -17,11 +17,11 @@
         <th>File 1</th>
         <th>File 2</th>
       </tr>
-      {% for key, value in diff.items() %}
+      {% for line in diff %}
         <tr>
-          <td>{{ key }}</td>
-          <td class="{% if value[0] != value[1] %}different{% endif %}">{{ value[0] }}</td>
-          <td class="{% if value[0] != value[1] %}different{% endif %}">{{ value[1] }}</td>
+          <td>{{ line[0] }}</td>
+          <td class="{% if line[1][0] != line[1][1] %}different{% endif %}">{{ line[1][0] }}</td>
+          <td class="{% if line[1][0] != line[1][1] %}different{% endif %}">{{ line[1][1] }}</td>
         </tr>
       {% endfor %}
     </table>
