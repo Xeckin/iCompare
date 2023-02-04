@@ -3,7 +3,7 @@
 from flask import Flask, request, render_template
 import difflib
 
-app = Flask(__iComapre__)
+app = Flask(__name__)
 
 @app.route("/")
 def index():
