@@ -17,7 +17,9 @@
         <th>File 1</th>
         <th>File 2</th>
       </tr>
-      {% for key, value in diff.items() %}
+      {% for line in diff %}
+    {{ line }}
+{% endfor %}
         <tr>
           <td>{{ key }}</td>
           <td class="{% if value[0] != value[1] %}different{% endif %}">{{ value[0] }}</td>
