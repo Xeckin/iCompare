@@ -3,27 +3,39 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <title>iCompare</title>
     <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+      }
       .different {
-        color: red;
+        background-color: lightcoral;
       }
     </style>
   </head>
   <body>
-    <h2>File Comparison Results</h2>
+    <h1>iCompare</h1>
     <table>
-      <tr>
-        <th>Setting</th>
-        <th>File 1</th>
-        <th>File 2</th>
-      </tr>
-      {% for line in diff %}
+      <thead>
         <tr>
-          <td class="{{ 'different' if line[0] in ['-' ,'+'] else '' }}">{{ line[0] }}</td>
-          <td class="{{ 'different' if line[0] == '-' else '' }}">{{ line[1][0] if line[0] != '?' and len(line[1]) > 0 else '' }}</td>
-          <td class="{{ 'different' if line[0] == '+' else '' }}">{{ line[1][1] if line[0] != '?' else '' }}</td>
+          <th>Line Number</th>
+          <th>File 1</th>
+          <th>File 2</th>
         </tr>
-      {% endfor %}
+      </thead>
+      <tbody>
+        {% for line in diff %}
+        <tr>
+          <td>{{ line[1][1] if line[0] != '?' else '' }}</td>
+          <td class="{{ 'different' if line[0] == '-' }}">{{ line[1][0] if line[0] == '-' and line[1] else '' }}</td>
+          <td class="{{ 'different' if line[0] == '+' }}">{{ line[2][0] if line[0] == '+' and line[2] else '' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
   </body>
 </html>
+
